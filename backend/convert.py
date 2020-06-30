@@ -20,7 +20,8 @@ def downloadExtension(url):
         return print("Invalid URL detected! Please pass in the URL of the extension's page in the Chrome Web Store or Firefox Browser Add-Ons gallery.")
 
 def extractExtension(filename):
-    print("extract")
+    print("Extracting Extension")
+    subprocess.run("unzip", filename, )
 
 def convertExtension():
     print("convert")
@@ -28,10 +29,10 @@ def convertExtension():
 def compileXcodeProject():
     print("compile")
 
-def runXcodeProject():
-    print("run")
+def signXcodeProject():
+    print("Sign")
 
 extensionFile = downloadExtension(sys.argv[1])
 extractExtension(extensionFile)
 compileXcodeProject()
-runXcodeProject()
+signXcodeProject()
