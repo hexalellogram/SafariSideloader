@@ -12,14 +12,14 @@ def downloadExtension(url):
     print("Downloading Extension")
     if "chrome.google.com/webstore/detail" in url:
         print ("Chrome Web Store URL detected")
-        downloadChromeExtension(url)
+        return downloadChromeExtension(url)
     elif "addons.mozilla.org/en-US/firefox/addon" in url:
         print ("Firefox Extension URL detected")
-        downloadFirefoxExtension(url)
+        return downloadFirefoxExtension(url)
     else:
-        print("Invalid URL detected! Please pass in the URL of the extension's page in the Chrome Web Store or Firefox Browser Add-Ons gallery.")
+        return print("Invalid URL detected! Please pass in the URL of the extension's page in the Chrome Web Store or Firefox Browser Add-Ons gallery.")
 
-def extractExtension():
+def extractExtension(filename):
     print("extract")
 
 def convertExtension():
@@ -31,7 +31,7 @@ def compileXcodeProject():
 def runXcodeProject():
     print("run")
 
-downloadExtension(sys.argv[1])
-extractExtension()
+extensionFile = downloadExtension(sys.argv[1])
+extractExtension(extensionFile)
 compileXcodeProject()
 runXcodeProject()
